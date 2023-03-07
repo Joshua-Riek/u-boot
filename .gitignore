@@ -35,7 +35,7 @@
 *.tab.[ch]
 
 # Build tree
-/build-*
+/build*
 
 #
 # Top-level generic files
@@ -44,6 +44,9 @@ fit-dtb.blob*
 /MLO*
 /SPL*
 /System.map
+/mkimage-in-simple-bin*
+/simple-bin*
+/tools/generated
 /u-boot*
 /boards.cfg
 /*.log
@@ -65,7 +68,8 @@ fit-dtb.blob*
 #
 # Generated include files
 #
-/include/config/
+include/autoconf.mk*
+/include/config*
 /include/generated/
 
 # stgit generated dirs
