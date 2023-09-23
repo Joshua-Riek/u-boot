@@ -1,7 +1,4 @@
 // SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-/*
- * Copyright (c) 2023 Collabora Ltd.
- */
 
 #include "rk3588s-u-boot.dtsi"
 #include <dt-bindings/pinctrl/rockchip.h>
@@ -12,11 +9,20 @@
 / {
 	aliases {
 		mmc1 = &sdmmc;
+		spi0 = &sfc;
 	};
 
 	chosen {
-		u-boot,spl-boot-order = "same-as-spl", &sdmmc, &sdhci;
+		u-boot,spl-boot-order = "same-as-spl", &sdmmc;
 	};
+};
+
+&combphy0_ps {
+	status = "okay";
+};
+
+&fspim0_pins {
+	bootph-all;
 };
 
 &sdmmc {
@@ -30,4 +36,24 @@
 	mmc-hs200-1_8v;
 	pinctrl-names = "default";
 	pinctrl-0 = <&emmc_bus8 &emmc_clk &emmc_cmd &emmc_data_strobe &emmc_rstnout>;
+	status = "disabled";
+};
+
+&sfc {
+	bootph-pre-ram;
+	u-boot,spl-sfc-no-dma;
+	pinctrl-names = "default";
+	pinctrl-0 = <&fspim0_pins>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+
+	flash@0 {
+		bootph-pre-ram;
+		compatible = "jedec,spi-nor";
+		reg = <0>;
+		spi-max-frequency = <24000000>;
+		spi-rx-bus-width = <4>;
+		spi-tx-bus-width = <1>;
+	};
 };
