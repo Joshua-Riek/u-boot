@@ -13,8 +13,7 @@
 	compatible = "xunlong,orangepi-5", "rockchip,rk3588s";
 
 	aliases {
-		mmc0 = &sdmmc;
-		mmc1 = &sdhci;
+		mmc0 = &sdhci;
 		serial2 = &uart2;
 	};
 
