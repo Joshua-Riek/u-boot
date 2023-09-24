@@ -1,0 +1,17 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+
+#include "rk3588s-orangepi-5-u-boot.dtsi"
+
+/ {
+	chosen {
+		u-boot,spl-boot-order = &sdmmc, &sdhci;
+	};
+};
+
+&sdhci {
+    status = "okay";
+};
+
+&sfc {
+	status = "disabled";
+};
