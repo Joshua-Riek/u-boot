@@ -192,7 +192,8 @@ dtb-$(CONFIG_ROCKCHIP_RK3588) += \
 	rk3588s-rock-5a.dtb \
 	rk3588-rock-5b.dtb \
 	rk3588s-orangepi-5.dtb \
-	rk3588s-orangepi-5b.dtb
+	rk3588s-orangepi-5b.dtb \
+	rk3588-orangepi-5-plus.dtb
 
 dtb-$(CONFIG_ROCKCHIP_RV1108) += \
 	rv1108-elgin-r1.dtb \
