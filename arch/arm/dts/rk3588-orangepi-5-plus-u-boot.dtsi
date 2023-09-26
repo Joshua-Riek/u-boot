@@ -9,7 +9,30 @@
 	};
 
 	chosen {
-		u-boot,spl-boot-order = "same-as-spl", &sdmmc, &sdhci;
+		u-boot,spl-boot-order = &sdmmc, &sdhci, &spi_nor;
+	};
+};
+
+&fspim1_pins {
+	bootph-all;
+};
+
+&sfc {
+	bootph-pre-ram;
+	u-boot,spl-sfc-no-dma;
+	pinctrl-names = "default";
+	pinctrl-0 = <&fspim1_pins>;
+	#address-cells = <1>;
+	#size-cells = <0>;
+	status = "okay";
+
+	spi_nor: flash@0 {
+		bootph-pre-ram;
+		compatible = "jedec,spi-nor";
+		reg = <0>;
+		spi-max-frequency = <100000000>;
+		spi-rx-bus-width = <4>;
+		spi-tx-bus-width = <1>;
 	};
 };
 
