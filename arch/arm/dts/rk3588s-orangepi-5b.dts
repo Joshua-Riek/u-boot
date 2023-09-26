@@ -12,3 +12,7 @@
 &sdhci {
 	status = "okay";
 };
+
+&sfc {
+	status = "disabled";
+};
