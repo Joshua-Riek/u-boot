@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+
+#include "rk3588-u-boot.dtsi"
+
+/ {
+	aliases {
+		mmc0 = &sdhci;
+	};
+
+	chosen {
+		u-boot,spl-boot-order = &sdhci;
+	};
+};
+
+&sdhci {
+	cap-mmc-highspeed;
+	mmc-ddr-1_8v;
+	mmc-hs200-1_8v;
+};
+
+&sdmmc {
+	status = "disabled";
+};
