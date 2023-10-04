@@ -192,7 +192,8 @@ dtb-$(CONFIG_ROCKCHIP_RK3588) += \
 	rk3588-edgeble-neu6b-io.dtb \
 	rk3588-evb1-v10.dtb \
 	rk3588s-rock-5a.dtb \
-	rk3588-rock-5b.dtb
+	rk3588-rock-5b.dtb \
+	rk3588-turing-rk1.dtb
 
 dtb-$(CONFIG_ROCKCHIP_RV1108) += \
 	rv1108-elgin-r1.dtb \

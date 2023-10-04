@@ -1,0 +1,30 @@
+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
+/*
+ * Copyright (c) 2023 Joshua Riek <jjriek@verizon.net>
+ *
+ */
+
+#include "rk3588-u-boot.dtsi"
+
+/ {
+	chosen {
+		u-boot,spl-boot-order = &sdhci;
+	};
+};
+
+&sdhci {
+	cap-mmc-highspeed;
+	mmc-ddr-1_8v;
+	mmc-hs200-1_8v;
+};
+
+&sdmmc {
+	status = "disabled";
+};
+
+&uart9 {
+	bootph-pre-ram;
+	clock-frequency = <24000000>;
+	status = "okay";
+};
+

@@ -80,6 +80,14 @@ config TARGET_ROCK5B_RK3588
 	  USB PD over USB Type-C
 	  Size: 100mm x 72mm (Pico-ITX form factor)
 
+config TARGET_TURING_RK1_RK3588
+	bool "Turing Machines TK1 RK3588 board"
+	select BOARD_LATE_INIT
+	help
+	  Turing Machines RK1 is a Rockchip RK3588 based SoM.
+
+	  There are three variants depending on the DRAM size : 8G, 16G and 32G.
+
 config ROCKCHIP_BOOT_MODE_REG
 	default 0xfd588080
 
@@ -96,5 +104,6 @@ source board/edgeble/neural-compute-module-6/Kconfig
 source board/rockchip/evb_rk3588/Kconfig
 source board/radxa/rock5a-rk3588s/Kconfig
 source board/radxa/rock5b-rk3588/Kconfig
+source board/turing/turing-rk1-rk3588/Kconfig
 
 endif
